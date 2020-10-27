@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+
+
+    <div class="container">
+        <div class="jumbotron container-fluid text-center" style="background-color:#138496">
+            <h1> <strong>Weather Dashboard</strong></h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card bg-light text-dark p-2 rem shadow-lg p-3 mb-5 bg-white rounded">
+                <!-- Card title -->
+                <div class="card-header">Search for a City:</div>
+                
+                <div class="card-body">
+                    <!-- Search button -->
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control"id="citySearch" aria-label="City Search" placeholder="Search" aria-describedby="searchBtn">
+                        <div class="input-group-append">
+                            <button class="btn btn-info text-light" id="searchBtn"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Clear search -->
+                <button class=" btn btn-info" type="button" id="clearHistory">Clear history</button>                
+
+                <!-- Search history -->
+                <form id="searchHistory" class="mt-1">                    
+                </form>
+            </div>
+            </div> 
+            <div class="col-sm-8" >
+                <div class="card bg-light text-dark p-2 rem shadow-lg p-3 mb-5 bg-white rounded" style="width: 700; height: 20rem;">
+                <!-- current weather  -->                
+                    <div id="currentWeather"></div>    
+                    <div id="uvlDiv"></div>                
+                </div>
+                <hr>
+                <!-- forecast -->
+                <h2>5-Day Forecast:</h2>
+                <div id="forecast" class="row">
+                </div>    
+            </div>
+
+        </div>
+        
+
+
+    </div>
+
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome and Moment JS -->
+    <script src="https://kit.fontawesome.com/7c7ed931a1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>    
+    
+  </body>
+</html>
