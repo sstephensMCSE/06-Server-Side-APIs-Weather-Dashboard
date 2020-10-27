@@ -23,7 +23,7 @@ $("#searchBtn").on("click", function (event) {
 
 function historyBtns() {
     // the browser storage is the source of truth
-    var searchHistory = JSON.parse(localStorage.getItem("cityNames"));    
+    searchHistory = JSON.parse(localStorage.getItem("cityNames"));
     // clear the history div
     $("#searchHistory").empty();
     // array loop to create the buttons
@@ -41,6 +41,13 @@ $("#clearHistory").on("click", function (event) {
     historyBtns();
 });
 
+$("#searchHistory").on('click', '.btn', function(event) {
+    event.preventDefault();
+    console.log($(this).text());
+    updateDashboard($(this).text());
+    
+});
+
 function updateDashboard(cityInput) {
 
     // format mm/dd/yyy
@@ -54,12 +61,11 @@ function updateDashboard(cityInput) {
         url: currentURL,
         method: 'GET'
     }).then(function (response) {
-        console.log(response);
-        console.log(currentURL);
+
         // clear the div
         $("#currentWeather").empty();
         
-        //create HTML for city information......
+        // Current Weather
         var cityName = $("<h2>").text(response.name);
         var displayDate = cityName.append(" " + todaysdate);
         var temp = $("<p>").text("Temprature: " + response.main.temp);
@@ -68,14 +74,41 @@ function updateDashboard(cityInput) {
         var weathericon = response.weather[0].main;        
         var newDiv = $('<div>');
         newDiv.append(displayDate, temp, humidity, wind);
+        $("#currentWeather").html(newDiv);        
+        
+        // nested UV API call
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+        var uvURL = `https://api.openweathermap.org/data/2.5/uvi?&appid=ecc0be5fd92206da3aa90cc41c13ca56&lat=${lat}&lon=${lon}`;
+        
+        $.ajax({
+            url: uvURL,
+            method: 'GET'
+        }).then(function (response) {
+            
+            console.log(response);    
+
+            // Create a red button for UV index
+            uvindex = $("<button class='btn bg-danger'>").text("UV Index: " + response.value);
+            var newDiv = $('<div>');
+            newDiv.append(uvindex);
+            $("#uvindex").html(newDiv);
+        });
+
+        newDiv.append(displayDate, temp, humidity, wind, uvindex);
         $("#currentWeather").html(newDiv);
     });
+    
 
+    // 5 day forecast
     $.ajax({
         url: forecastURL,
         method: 'GET'
     }).then(function (response) {
-        console.log(response);
-        console.log(forecastURL);
+
+        // console.log(response);
+        // console.log(forecastURL);
+
+
     });
 };
