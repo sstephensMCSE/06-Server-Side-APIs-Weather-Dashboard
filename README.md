@@ -8,7 +8,6 @@ I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 ```
 ## Acceptance Criteria
-
 ```
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
@@ -25,14 +24,28 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
+## Technologies Used
+* Openweathermap API
+* Mobile Friendly UI
+* Time formatting
+* Images
+* Arrays
+* Javascript powered dynamic content
+* Error checking
+* Local Storage
+* Bootstrap with no CSS file
+* Loops
+* Functions
+* Global and local scope variables
+
 ## The URL of the functional, deployed application
-```
 https://sstephensmcse.github.io/06-Server-Side-APIs-Weather-Dashboard/
-```
+
 ## The URL of the GitHub repository
-```
 https://github.com/sstephensMCSE/06-Server-Side-APIs-Weather-Dashboard/
-```
+
 ## Screenshots
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+![weather dashboard overview](./weatherdashboard.jpg)
+![weather dashboard UVButton](./reactive-UV.jpg)
+![weather dashboard mobile](./mobile.jpg)
