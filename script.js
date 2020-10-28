@@ -145,7 +145,7 @@ function updateDashboard(cityInput) {
             // Creating tags with the result items information.....
             var h5date = $("<p class='card-title'>").text(date);
             var pTemp = $("<p class='card-text'>").text("Temp: " + temp);;
-            var pHum = $("<p class='card-text'>").text("Humidity " + hum);;
+            var pHum = $("<p class='card-text'>").text("Humidity: " + hum);;
 
             // Add to the forecast div
             fiveDayDiv.append(h5date, icon, pTemp, pHum);            
