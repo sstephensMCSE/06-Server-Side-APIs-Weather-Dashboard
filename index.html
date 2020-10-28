@@ -23,42 +23,43 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="card bg-light text-dark p-2 rem shadow-lg p-3 mb-5 bg-white rounded">
-                <!-- Card title -->
-                <h4 class="card-title">City Search</h4>
-                
-                <div class="card-body">
-                    <!-- Search button -->
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control"id="citySearch" aria-label="City Search" placeholder="Search" aria-describedby="searchBtn">
-                        <div class="input-group-append">
-                            <button class="btn btn-info text-light" id="searchBtn"><i class="fa fa-search"></i></button>
+                    <!-- Card title -->
+                    <h4 class="card-title">City Search</h4>
+                    
+                    <div class="card-body">
+                        <!-- Search button -->
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control"id="citySearch" aria-label="City Search" placeholder="Search" aria-describedby="searchBtn">
+                            <div class="input-group-append">
+                                <button class="btn btn-info text-light" id="searchBtn"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
                 
-                <!-- Clear search -->
-                <button class="btn btn-info" type="button" id="clearHistory">Clear history</button>                
+                    <!-- Clear search -->
+                    <button class="btn btn-info" type="button" id="clearHistory">Clear history</button>                
 
-                <!-- Search history -->
-                <form id="searchHistory" class="mt-1">            
-                </form>
-            </div>
+                    <!-- Search history -->
+                    <form id="searchHistory" class="mt-1"></form>
+                </div>
             </div>
             <div class="col-sm-8" >
-                <div class="card bg-light text-dark p-2 rem shadow-lg p-3 mb-5 bg-white rounded" style="width: 700; height: 17rem;">
+                <div class="card bg-light text-dark p-2 rem shadow-lg p-3 mb-5 bg-white rounded" style="width: 700; height: 22rem;">
                 <!-- current weather  -->                
-                <div id="currentWeather"></div></div>                
-                <div id="uvindex"></div></div>
-                <hr>
-                <!-- forecast -->
-                <h3>5-Day Forecast:</h3>
-                <div id="forecast" class="row"></div>                
-        
-
+                <div id="currentWeather"></div>
+                <div id="uvindex"></div>
+                </div>
+            </div>                
+        </div>
+        <hr>
+        <h3>5-Day Forecast:</h3>
+        <div class="row">
+            <!-- 5 day forecast -->
+            <div id="forecast" class="row"></div>
         </div>
         
         <footer class="mt-5 p-3 text-center bg-light">
-			Weather Dashboard &copy 2020
+			Weather Dashboard &copy sstephensMCSE 2020
 						
 		</footer>
 
