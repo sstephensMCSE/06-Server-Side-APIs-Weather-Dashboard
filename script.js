@@ -66,7 +66,7 @@ function updateDashboard(cityInput) {
         $("#currentWeather").empty();
         
         // Current Weather
-        var cityName = $("<h2>").text(response.name);
+        var cityName = $("<h3>").text(response.name);
         var displayDate = cityName.append(" " + todaysdate);
         var temp = $("<p>").text("Temprature: " + response.main.temp);
         var humidity = $("<p>").text("Humidity: " + response.main.humidity);
@@ -84,31 +84,42 @@ function updateDashboard(cityInput) {
         $.ajax({
             url: uvURL,
             method: 'GET'
-        }).then(function (response) {
-            
-            console.log(response);    
-
-            // Create a red button for UV index
-            uvindex = $("<button class='btn bg-danger'>").text("UV Index: " + response.value);
+        }).then(function (response) {            
+            // Create a green button for UV index
+            uvindex = $("<button class='btn bg-success'>").text("UV Index: " + response.value);    
+            if (response.value > 3) {
+                // Change to yellow button for UV index
+                uvindex = $("<button class='btn bg-warning'>").text("UV Index: " + response.value);    
+            }
+            if (response.value > 6) {
+                // Change to red button for UV index            
+                uvindex = $("<button class='btn bg-danger'>").text("UV Index: " + response.value);
+            }
             var newDiv = $('<div>');
             newDiv.append(uvindex);
             $("#uvindex").html(newDiv);
-        });
-
+        });        
         newDiv.append(displayDate, temp, humidity, wind, uvindex);
         $("#currentWeather").html(newDiv);
     });
     
 
-    // 5 day forecast
+    // 5 day forecast cards
     $.ajax({
         url: forecastURL,
         method: 'GET'
     }).then(function (response) {
+        // clear any previous result
+        $("#forecast").empty();
 
-        // console.log(response);
-        // console.log(forecastURL);
+        // put the response into an array
+        var results = response.list;
 
+        console.log(response);
+        console.log(forecastURL);
+        
+        forecastdiv = $('<div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">');      
+        
 
     });
 };
