@@ -27,9 +27,11 @@ function historyBtns() {
     // clear the history div
     $("#searchHistory").empty();
     // array loop to create the buttons
-    for (var i = 0; i < searchHistory.length; i++) {
-        searchbtn = $("<button class='btn btn-light'>").text(searchHistory[i]);
-        $("#searchHistory").append(searchbtn);        
+    if (!searchHistory == null){
+        for (var i = 0; i < searchHistory.length; i++) {
+            searchbtn = $("<button class='btn btn-light'>").text(searchHistory[i]);
+            $("#searchHistory").append(searchbtn);        
+        }
     }
 }
 
