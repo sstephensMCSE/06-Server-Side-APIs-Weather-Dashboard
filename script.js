@@ -2,13 +2,19 @@
 openweatherAPI = "dcbe46fefc13d93112c8444dd4bded9f"
 
 // Initialize search history and load the buttons
-var searchHistory = [];
+searchHistory = JSON.parse(localStorage.getItem("cityNames"));
+if (searchHistory == null) {
+    searchHistory = []
+    localStorage.setItem('cityNames', JSON.stringify(searchHistory));
+}
 historyBtns();
 
 
 $("#searchBtn").on("click", function (event) {    
     event.preventDefault();
     var cityInput = $("#citySearch").val().trim();
+    console.log(cityInput);
+    console.log(searchHistory);
     // Add query to history array
     searchHistory.push(cityInput);
     // update local storage
@@ -122,9 +128,6 @@ function updateDashboard(cityInput) {
 
         // put the response into an array
         var results = response.list;
-
-        console.log(response);
-        console.log(forecastURL);
 
         for (var i = 0; i < results.length; i += 8) {
             // Creating a div with style and padding         
